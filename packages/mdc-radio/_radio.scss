@@ -32,6 +32,7 @@
 @use '@material/touch-target/mixins' as touch-target-mixins;
 @use '@material/touch-target/variables' as touch-target-variables;
 @use './radio-theme';
+@use '@material/focusring/focus-ring';
 
 $ripple-target: radio-theme.$ripple-target;
 
@@ -145,6 +146,15 @@ $ripple-target: radio-theme.$ripple-target;
         $size: touch-target-variables.$height,
         $query: $query
       );
+    }
+
+    @include ripple-theme.focus {
+      .mdc-radio__focus-ring {
+        @include focus-ring.focus-ring(
+          $container-outer-padding: 0,
+          $query: $query
+        );
+      }
     }
   }
 
